@@ -6,6 +6,10 @@ Interactive scenario explorer for enterprise AI investment, delivery costs and c
 
 **[在线试用](https://fanh6591-ux.github.io/enterprise-ai-value-explorer/) · [原官网版本](https://isaac2024.online/enterprise-faq/) · [企业 AI 项目指南](https://github.com/fanh6591-ux/enterprise-ai-playbook)**
 
+![模型静态预览](docs/preview.svg)
+
+*预览由模型直接生成，在线演示可操作；图中数字均为假设。*
+
 ## 30 秒开始
 
 下载仓库后直接打开 `index.html`；也可运行：
