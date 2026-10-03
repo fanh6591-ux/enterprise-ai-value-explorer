@@ -1,0 +1,36 @@
+{
+  "captured_on": "2026-10-03",
+  "source": "https://isaac2024.online/enterprise-faq/",
+  "files": [
+    {
+      "file": "explorer.css",
+      "source": "https://isaac2024.online/home-assets/enterprise-faq-node-text-trim-20261002-v1/explorer.css",
+      "sha256": "3b9962c7a14eb726fbb98deddaccc289f1e4a08e0d0372ce2efa592e749ffb2c"
+    },
+    {
+      "file": "model.js",
+      "source": "https://isaac2024.online/home-assets/enterprise-faq-node-text-trim-20261002-v1/model.js",
+      "sha256": "e9debe945511d4f9403cb1feafb3f9253327fa64a514ed16d146f0f6c50216f6"
+    },
+    {
+      "file": "stories.js",
+      "source": "https://isaac2024.online/home-assets/enterprise-faq-waiting-placement-20261002-v1/stories.js",
+      "sha256": "35f0b654f651c91288d6e4f28770383dbcd3e712dc3d2127245175a7474379e9"
+    },
+    {
+      "file": "explorer.js",
+      "source": "https://isaac2024.online/home-assets/enterprise-faq-node-text-trim-20261002-v1/explorer.js",
+      "sha256": "813cb00c54fc892529c73f68152ba71100031308e3274175ccdac842ad38ace3"
+    }
+  ],
+  "adaptations": [
+    "Added a standalone HTML shell; renamed displayed profit to capacity value difference; calculations unchanged."
+  ],
+  "current_sha256": {
+    "index.html": "44a728957479c8a0025248f669ce29427957495aeafd64906b8050c708acb8b4",
+    "stories.js": "35f0b654f651c91288d6e4f28770383dbcd3e712dc3d2127245175a7474379e9",
+    "explorer.css": "3b9962c7a14eb726fbb98deddaccc289f1e4a08e0d0372ce2efa592e749ffb2c",
+    "explorer.js": "5bb090caadc2b72fbbf3983afdec46b25e4ceeb8b0bf4b6f2374fce311a0eacd",
+    "model.js": "e9debe945511d4f9403cb1feafb3f9253327fa64a514ed16d146f0f6c50216f6"
+  }
+}

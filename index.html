@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>企业 AI 投入与价值交互图 · Isaac</title><meta name="description" content="通过可交互曲线讨论企业 AI 自建成本、项目投入、产能价值与安全情景。所有默认数值为演示假设。"><link rel="stylesheet" href="explorer.css"><style>body{margin:0;background:#050505;color:#e7e6e2;font:16px/1.7 system-ui,sans-serif}*{box-sizing:border-box}.intro,.outro{width:min(100% - 40px,1400px);margin:auto}.intro{padding:38px 0 10px}.intro h1{font-size:clamp(25px,4vw,40px);line-height:1.3;margin:12px 0}.intro p{color:#aaa69e;max-width:850px}.intro a,.outro a{color:#79b5df}.tag{font-size:12px;letter-spacing:.1em;color:#e6c777}.outro{padding:32px 0 50px;border-top:1px solid #292929}details{margin:18px 0}summary{cursor:pointer}.faq-document{padding-top:24px}a:focus-visible,summary:focus-visible{outline:2px solid #79b5df;outline-offset:5px}@media(max-width:600px){.intro{padding-top:24px}.ve-profit-result{min-width:80px}}</style><script defer src="vendor/echarts.min.js"></script><script defer src="model.js"></script><script defer src="stories.js"></script><script defer src="explorer.js"></script></head><body><header class="intro"><span class="tag">ISAAC / ENTERPRISE AI VALUE EXPLORER</span><h1>企业 AI：投入怎样变成价值？</h1><p>拖动曲线、切换阅读主题，探索自建团队、项目投入与产能价值的关系。默认数字是讨论用的情景假设，价值差额是产能价值减投入，不代表已实现的现金利润或真实报价。</p><a href="https://github.com/fanh6591-ux/enterprise-ai-value-explorer">查看代码与使用说明 ↗</a> · <a href="https://isaac2024.online/">认识 Isaac ↗</a></header><main class="faq-document"><section class="faq-answer value-explorer" id="value-map" aria-label="企业 AI 投入与回报" data-value-explorer>
+  <div class="ve-workbench">
+    <div class="ve-workspace">
+      <div class="ve-visual">
+        <div class="ve-metrics" data-metrics>
+          <div class="ve-metrics-heading" hidden style="display:none"><small data-metric-period>同一入场点与观察期限</small></div>
+          <div class="ve-metric-values">
+            <div><span><button type="button" data-open-story="investment" data-open-fragment="entry-method">累计总投入</button></span><output data-metric-investment aria-live="off">—</output></div>
+            <div><span><button type="button" data-open-story="fde" data-open-fragment="technical">FDE 累计成本</button></span><output data-metric-fde aria-live="off">—</output></div>
+            <div><span><button type="button" data-open-story="return" data-open-fragment="process" data-capacity-label>周期产能价值</button></span><output data-metric-return aria-live="off">—</output></div>
+            <button class="ve-wide-button" type="button" data-wide aria-label="大图模式" title="展开大图" aria-pressed="false"><svg class="ve-expand-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><svg class="ve-collapse-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h5V3m13 5h-5V3M8 21v-5H3m13 5v-5h5"/></svg></button>
+          </div>
+          <div class="ve-comparison-status" data-comparison-status data-profit-state="zero">
+            <div class="ve-profit-result"><button type="button" data-open-story="return" data-open-fragment="value-gap" aria-label="产能价值差额计算口径">价值差额</button><output data-profit-value aria-live="off">—</output></div>
+            <div class="ve-legend" role="group" aria-label="曲线说明与安全事故">
+              <button type="button" id="ve-tab-fde" data-story="fde" aria-controls="fde-pricing" aria-pressed="false"><svg class="ve-swatch ve-swatch-fde" viewBox="0 0 26 16" width="26" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M2 13C8 13 8 9 13 9S18 3 24 3"/></svg><span>自建 FDE 成本</span><span class="ve-open-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m8 8 4 13 3-6 6-3-13-4Z"/><path d="M5 2v2M2 5h2M2.5 2.5 4 4M9 2l-1 2M2 9l2-1"/></svg></span></button>
+              <button type="button" id="ve-tab-investment" data-story="investment" aria-controls="project-investment" aria-pressed="true"><svg class="ve-swatch ve-swatch-investment" viewBox="0 0 26 16" width="26" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M2 13C8 13 8 9 13 9S18 3 24 3"/></svg><span>累计总投入</span><span class="ve-open-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m8 8 4 13 3-6 6-3-13-4Z"/><path d="M5 2v2M2 5h2M2.5 2.5 4 4M9 2l-1 2M2 9l2-1"/></svg></span></button>
+              <button type="button" id="ve-tab-return" data-story="return" aria-controls="return-acceptance" aria-pressed="false"><svg class="ve-swatch ve-swatch-return" viewBox="0 0 26 16" width="26" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M2 13C8 13 8 9 13 9S18 3 24 3"/></svg><span>产能价值</span><span class="ve-open-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m8 8 4 13 3-6 6-3-13-4Z"/><path d="M5 2v2M2 5h2M2.5 2.5 4 4M9 2l-1 2M2 9l2-1"/></svg></span></button>
+              <button type="button" id="ve-tab-safety" data-story="safety" data-risk aria-controls="risk-safety" aria-label="安全事故" aria-pressed="false" title="开启安全事故"><svg class="ve-bomb-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10" cy="14" r="7"/><path d="m14.5 8.5 2-2 2 2-2 2M17.5 6.5V5a2 2 0 0 1 2-2M21 2l1-1m-1 5 2 1M17 2l-1-1"/></svg><span>安全事故</span><span data-risk-state aria-hidden="true">开启</span></button>
+            </div>
+          </div>
+          <div class="ve-gesture-hint"><span>拖动起始线</span><span class="ve-desktop-hint">按住 Shift 键加鼠标滚轮，可以观察不同时刻的状态</span><span class="ve-touch-hint">横向拖动起始线，松开固定；点下方＋／−缩放坐标轴。</span></div>
+        </div>
+        <div class="ve-plot" data-plot>
+          <div class="ve-chart" data-chart role="group" tabindex="0" aria-label="细蓝线是不同入场时点的一次报价，选定后亮蓝线为本次报价加上逐月运维的累计总投入。红线为自建 FDE 累计成本，金线为累计产能价值。起始线已设置，横向拖动调整，松开固定；可用图表下方横轴、纵轴的加减按钮缩放。键盘左右方向键也可调整起始线，Esc 撤销当前拖动；鼠标滚轮缩放纵轴，Shift 加滚轮缩放横轴。金线在蓝线上方时，两线之间填浅红色；蓝线在上方时填浅绿色。点击曲线可高亮选中并阅读说明。安全事故使金色累计产能价值曲线迅速下弯并穿过横轴，金额扣除假设事故损失。所有数字是示意假设。"></div>
+          <div data-end-links role="group" aria-label="选择曲线说明"></div><div class="ve-time-nodes" data-time-nodes role="group" aria-label="选择关键时间节点"></div>
+          <div class="ve-plot-tools" data-zoom-tools aria-label="图表坐标轴缩放"><div class="ve-axis-control" aria-label="横轴缩放"><span data-x-scale>X轴 0.4×</span><button type="button" data-xzoom="out" aria-label="缩小横轴，查看更多未来范围" title="缩小横轴">−</button><button type="button" data-xzoom="in" aria-label="放大横轴，查看较近范围" title="放大横轴">＋</button></div><div class="ve-axis-control" aria-label="纵轴缩放"><span data-view-scale>Y轴 0.92×</span><button type="button" data-zoom="out" aria-label="缩小纵轴，查看更多金额范围" title="缩小纵轴">−</button><button type="button" data-zoom="in" aria-label="放大纵轴，查看金额细节" title="放大纵轴">＋</button></div></div>
+          <div class="ve-load-error" data-load-error hidden>图表未加载，可用下方按钮阅读。</div>
+        </div>
+        <div class="ve-navigation" aria-label="逐月推演">
+          <div class="ve-simulation" data-simulation aria-label="入场后逐月推演">
+            <button type="button" data-play aria-pressed="false" aria-label="开始推演">开始推演</button>
+            <span class="ve-simulation-stage"><span>入场后</span><output data-phase>观察点</output></span><input type="range" min="0" max="90" value="90" step="any" aria-label="入场后第几个月" data-month>
+            <output data-month-label>第 90 / 90 个月</output>
+          </div>
+        </div>
+        <div class="ve-risk-controls" data-risk-controls hidden>
+          <span>假设事故损失 <output data-loss-output>—</output> · 冲击后产能净值 <output data-incident-net>—</output></span>
+          <small>金线扣除事故损失 · 压力测试，未设事故概率</small>
+        </div>
+        <div class="ve-decomposition" data-decomposition aria-label="阅读正文"></div>
+      </div>
+      <aside class="ve-inspector" aria-label="曲线背后的说明">
+        <section id="fde-pricing" role="region" aria-labelledby="ve-tab-fde" data-panel="fde" hidden></section>
+        <section id="return-acceptance" role="region" aria-labelledby="ve-tab-return" data-panel="return"></section>
+        <section id="project-investment" role="region" aria-labelledby="ve-tab-investment" data-panel="investment" hidden></section>
+        <section id="risk-safety" role="region" aria-labelledby="ve-tab-safety" data-panel="safety" hidden></section>
+      </aside>
+    </div>
+  </div>
+  <p class="ve-live" aria-live="polite" data-live></p>
+</section></main><footer class="outro"><details><summary>怎样把它用于真实项目讨论</summary><ol><li>先记录现有流程的时间、数量、质量和复核成本。</li><li>在 model.js 中调整默认假设，保留修改日期与依据。</li><li>把可释放的工时、现金节约与新增收入分别记录。</li><li>用试点结果逐步替换假设，并明确哪些价值尚未兑现。</li></ol></details><p>这份演示从 <a href="https://isaac2024.online/enterprise-faq/">Isaac 官网的企业落地常见问题</a>拆出。可本地运行，无需账户、密钥或后台服务。</p><a href="https://github.com/fanh6591-ux/enterprise-ai-playbook">获取需求与验收模板 ↗</a> · <a href="https://isaac2024.online/#contact">交流企业 AI 项目 ↗</a></footer></body></html>
